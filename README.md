@@ -1,3 +1,21 @@
+# I give up.
+
+Can't even make it build on windows:
+
+- gcc typo in wxCompile.nim (fixable, see [fork][3])
+- wxWidgets compiled asset filename mismatch: has `lib` prefix while
+  wxCompile.nim assume they don't. Fixable.
+- Missing file: wxCompile.nim assumes `wxmsw30u_qa.lib` exists, which
+  was nowhere to be found (tried both 3.0.2 and 3.0.4, same issue).
+  This is where I give up.
+
+While these certainly can be fixed, 3 strikes before I can even get a Hello
+World working is just a tad too bleeding edge. Throw Windows into the mix
+and... yeah, nope.
+
+Maybe I'll just do wxPython + pynsist. At least there's still declarative GUI
+there. XML, but hey, declarative is declarative.
+
 # Nim OBS stream overlay
 
 My attempt to rewrite [ORTS][1] in Nim & wxWidgets, because
@@ -45,3 +63,4 @@ SOFTWARE.
 
 [1]: https://github.com/nhanb/orts
 [2]: https://peterme.net/cross-platform-guis-and-nim-macros.html
+[3]: https://github.com/nhanb/wxnim/commit/a4017f5d8438be627d931a8e2c75d77e454cfd45
